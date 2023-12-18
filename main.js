@@ -31,17 +31,40 @@ function countWords(str) {
   
 
 
-function containsDigit() {
-  
+function containsDigit(str) {
+  let num = [0, 1, 2, 3, 4]
+  if(typeof str === num){
+    return true
+  }else{
+    return false
+  }
 }
 
-function containsLowerCase() {
 
+function containsLowerCase(str) {
+    for(let i =0; i < str.length; i++){
+      if(str[i] === str[i].toLowerCase() &&
+       str[i] !== str.toUpperCase()) {
+        return true;
+       }else{
+        return false
+       }
+    }
 }
 
-function containsUpperCase() {
 
+function containsUpperCase(str) {
+    for(let i =0; i < str.length; i++){
+      if(str[i] === str[i].toUpperCase() &&
+       str[i] !== str.toLowerCase()) {
+        return true;
+       }else{
+        return false
+       }
+    }
 }
+
+
 
 function containsNonAlphanumeric() {
 
