@@ -20,9 +20,17 @@ function isLong(str) {
 }
 
 function exclaim(str) {
+ let added = ''
+ for(let i =0; i < str.length; i++){
+  if(str[i] !== '!'){
+    added += str[i]}
+      else if(str[i] === "!")
+      added += str 
+    else if(str[i] === '!!!!!!')
+        added += str[i]
+    } return added
+  }
 
-
-}
 
 
 function countWords(str) {
@@ -66,9 +74,15 @@ function containsUpperCase(str) {
 
 
 
-function containsNonAlphanumeric() {
-
+function containsNonAlphanumeric(str) {
+    for(let i =0; i < str.length; i++){
+      if(str === "!@$^&*!"){
+        return str.push(str)
+      }
 }
+}
+
+
 
 function containsSpace(str) {
 // if string has space, returns true & if no space, returns false --> boolean
