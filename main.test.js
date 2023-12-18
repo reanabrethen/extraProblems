@@ -31,7 +31,7 @@ describe('isEvenlyDivisible', () => {
 });
 
 describe('halfSquare', () => {
-  it(`returns the half square of the given number`, () => {
+  it(`returns half the  square of the given number`, () => {
     assert.strictEqual(halfSquare(6), 18);
     assert.strictEqual(halfSquare(7), 24.5);
     assert.strictEqual(halfSquare(-8), 32);
