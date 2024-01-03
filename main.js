@@ -173,35 +173,82 @@ if(str.includes(" ")){
 }
 }
 // includes returns a true or false if it contains that character you are searching for
+//------------------------------------------------------------------------------------------------
 
-
-function digits(str) {
+function digits(num) {
+let arr = num.toString().split('')
+let newArr = []
+for(let i = 0; i < arr.length; i++){
+   if(arr[i] === '-' || arr[i] === '.'){
+   newArr = newArr   //sanity check
+   }else{
+    arr[i] = parseFloat(arr[i])   //taking string & changing it back to a number
+    newArr.push(arr[i])
+   } 
+} return newArr
 
 }
 
 
 
-function truncate() {
-
+//-----------------------------------------------------------
+function truncate(str) {
+  if(isLong(str) === false){
+    return str 
+  }else {
+    final = ""
+    for(let char of str){
+      if(final.length <= 7){
+        final = final + char
+      }
+    }
+  } return final + "..."
 }
 
+//use past functions to complete
+//check if string <= 15, return str if true
+//use for loop
+
+//-------------------------------------------------------------------------
 function isValidPassword(pass) {
-  let valid = []
-  for(let char of pass){
-    if(char === '$' && 
-      char === '' && 
-      char === num &&
-      char !== valid.toUpperCase() &&
-      char !== valid.toLowerCase()){
-        valid.push(char)
-}
-} return false 
+    if(!containsUpperCase(pass)){
+      return false
+    }else if(!containsLowerCase(pass)){
+    return false
+    }else if(!containsNonAlphanumeric(pass)){
+      return false
+    }else if(containsSpace(pass)){
+      return false
+    }else if(!containsDigit(pass)){
+      return false
+    }else{
+      return true
+    }
+  }
+
+//---------------------------------------------------------------------
+
+function onlyPunchy(arr) {
+
+  let newArr = []
+
+  for(let str of arr){
+    str = exclaim(str)
+    if(isLong(str)){
+      newArr = newArr 
+    }else{
+      newArr.push(str)
+    }
+  } return newArr
 }
 
-
-function onlyPunchy() {
-
-}
+//returns str only <15 characters
+//adds exclamation point to any titles w/o exclamation
+//removes exclamtaion points from any titles with more than one '!'
+//only counts letters as characters, not '!'
+//remove exclamation & concat a singled out exclamation
+//for loop
+ //based off of exclaim & isLong
 
 
 module.exports = {
