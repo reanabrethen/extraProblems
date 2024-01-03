@@ -172,6 +172,20 @@ if(str.includes(" ")){
   return false
 }
 }
+
+//SIMPLE RETURN
+//return str.includes(' ')
+//
+
+//FOR OF LOOP ANSWER
+//for(let char of str){
+  //(if char === " ")
+  //return true
+// }
+// }
+// return false
+// }
+
 // includes returns a true or false if it contains that character you are searching for
 //------------------------------------------------------------------------------------------------
 
@@ -182,24 +196,38 @@ for(let i = 0; i < arr.length; i++){
    if(arr[i] === '-' || arr[i] === '.'){
    newArr = newArr   //sanity check
    }else{
-    arr[i] = parseFloat(arr[i])   //taking string & changing it back to a number
+    arr[i] = parseFloat(arr[i])   //taking string & changing it back to a number  //Number(parameter) --> another way to turn back to a number or char = char+ or parseInt(char)--> chop off decimals
     newArr.push(arr[i])
    } 
 } return newArr
-
 }
+
+
+//KYLES SOLUTION
+// function digits(num){
+// let arr = num.toString()
+//   const result = []
+//     for(let char of arr){
+//       if(!('.-'.includes(char))){
+//           result.push(parseInt(char))
+//       }
+//     }return result
+//   }
+
 
 
 
 //-----------------------------------------------------------
 function truncate(str) {
-  if(isLong(str) === false){
+  let final = ''
+
+  if(isLong(str) === false){    //!isLong(str)
     return str 
   }else {
-    final = ""
+    // final = ""      //makes it global, can break code, NOT GOOD PRACTICE  -->can use var final = '' here instead of let & it will pass BUT var can still break code so BEST PRACTICE === let or const
     for(let char of str){
       if(final.length <= 7){
-        final = final + char
+        final = final + char     //final += char
       }
     }
   } return final + "..."
@@ -210,6 +238,7 @@ function truncate(str) {
 //use for loop
 
 //-------------------------------------------------------------------------
+
 function isValidPassword(pass) {
     if(!containsUpperCase(pass)){
       return false
@@ -226,17 +255,25 @@ function isValidPassword(pass) {
     }
   }
 
+  //KYLE'S SHORT HAND  --> BEST PRACTICE & CLEAR
+//return containsDigit(str) &&
+  //containsLowerCase(str) && 
+//   containsNonAlphanumeric(str) &&
+//   containsUpperCase(str) &&
+//   !containsSpace(str)
+// }
+
 //---------------------------------------------------------------------
 
 function onlyPunchy(arr) {
 
   let newArr = []
 
-  for(let str of arr){
+  for(let str of arr){    //can use movie instead of str for clarity
     str = exclaim(str)
-    if(isLong(str)){
-      newArr = newArr 
-    }else{
+    if(!isLong(str)){
+    //   newArr = newArr 
+    // }else{
       newArr.push(str)
     }
   } return newArr
